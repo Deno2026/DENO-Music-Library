@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="DENO Music Library - free AI-generated music previews and downloads. No attribution required.">
+    <title>DENO Music Library</title>
+    <link rel="stylesheet" href="styles.css?v=20260614-category">
+  </head>
+  <body>
+    <canvas id="signal-canvas" aria-hidden="true"></canvas>
+    <div class="page-noise" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="hub-link" href="https://deno2026.github.io/Deno-AI-HUB/" aria-label="Back to DENO AI HUB">
+        <span class="hub-mark">DENO</span>
+        <span>AI HUB</span>
+      </a>
+      <nav class="top-nav" aria-label="Primary">
+        <a href="#library">Library</a>
+        <a href="#free-use">Free Use</a>
+      </nav>
+    </header>
+
+    <main class="app-shell" id="library">
+      <section class="library-head" aria-labelledby="page-title">
+        <div>
+          <h1 id="page-title">DENO Music Library</h1>
+          <p class="subline">Preview quickly. Download freely. Use it anywhere.</p>
+        </div>
+        <div class="head-stats" aria-live="polite">
+          <span id="visible-count">0 tracks</span>
+          <span id="active-filter-count">No filters</span>
+        </div>
+      </section>
+
+      <section class="free-use-strip" id="free-use" aria-label="Free use license">
+        <strong>DENO Free Music License v1</strong>
+        <span>Personal and commercial use. No attribution required.</span>
+      </section>
+
+      <section class="category-panel" aria-label="Music categories">
+        <div class="category-panel-head">
+          <span>Categories</span>
+          <span>Choose BGM or vocal music, then refine options on the left.</span>
+        </div>
+        <div class="category-tabs" id="category-tabs" role="tablist" aria-label="Primary music categories">
+          <button class="is-selected" type="button" role="tab" aria-selected="true" data-category="all">
+            <span>All</span>
+            <strong data-category-count="all">0</strong>
+          </button>
+          <button type="button" role="tab" aria-selected="false" data-category="bgm">
+            <span>BGM</span>
+            <strong data-category-count="bgm">0</strong>
+          </button>
+          <button type="button" role="tab" aria-selected="false" data-category="vocal">
+            <span>Vocal Music</span>
+            <strong data-category-count="vocal">0</strong>
+          </button>
+        </div>
+      </section>
+
+      <section class="workbench" aria-label="Music library">
+        <aside class="filter-rail" aria-label="Filters">
+          <div class="filter-rail-head">
+            <span>Options</span>
+            <strong id="selected-category-label">All</strong>
+          </div>
+
+          <div class="filter-block search-block">
+            <label for="search-input">Search</label>
+            <input id="search-input" type="search" autocomplete="off" placeholder="Title, mood, genre">
+          </div>
+
+          <div class="filter-block">
+            <div class="filter-title">Mood</div>
+            <div class="chip-grid" id="mood-filters"></div>
+          </div>
+
+          <div class="filter-block">
+            <div class="filter-title">Style Tags</div>
+            <div class="chip-grid" id="genre-filters"></div>
+          </div>
+
+          <div class="filter-block compact-filter" id="vocal-filter-block">
+            <div class="filter-title">Vocals</div>
+            <div class="segmented" id="vocal-filter" role="group" aria-label="Vocal filter">
+              <button class="is-selected" type="button" data-vocal="all">All</button>
+              <button type="button" data-vocal="instrumental">No Vocal</button>
+              <button type="button" data-vocal="vocal">Vocals</button>
+            </div>
+          </div>
+
+          <button class="favorite-filter" id="favorite-filter" type="button" aria-pressed="false">
+            Favorites
+          </button>
+          <button class="reset-button" id="reset-filters" type="button">Reset</button>
+        </aside>
+
+        <section class="track-surface" aria-label="Tracks">
+          <div class="track-list-head">
+            <span>Tracks</span>
+            <span>Click a row to preview. Download when it fits.</span>
+          </div>
+          <div class="track-list" id="track-list" aria-live="polite"></div>
+          <div class="empty-state" id="empty-state" hidden>
+            <strong>No tracks found</strong>
+            <span>Try fewer filters or a broader search.</span>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <audio id="audio-player" preload="metadata"></audio>
+
+    <section class="player-dock" id="player-dock" aria-label="Now playing" hidden>
+      <button class="dock-main" id="dock-open" type="button" aria-label="Open player">
+        <span class="dock-art" aria-hidden="true"></span>
+        <span class="dock-copy">
+          <strong id="dock-title">No track</strong>
+          <span id="dock-meta">DENO</span>
+        </span>
+      </button>
+      <div class="dock-controls" aria-label="Playback controls">
+        <button class="icon-button" id="dock-prev" type="button" aria-label="Previous track"></button>
+        <button class="icon-button is-primary" id="dock-play" type="button" aria-label="Play"></button>
+        <button class="icon-button" id="dock-next" type="button" aria-label="Next track"></button>
+        <button class="icon-button" id="dock-repeat" type="button" aria-label="Repeat off"></button>
+        <button class="icon-button" id="dock-volume" type="button" aria-label="Volume 100 percent"></button>
+        <button class="icon-button" id="dock-favorite" type="button" aria-label="Save favorite"></button>
+      </div>
+      <input class="dock-seek" id="dock-seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek current track">
+    </section>
+
+    <div class="player-backdrop" id="player-backdrop" hidden></div>
+    <section class="player-sheet" id="player-sheet" aria-label="Player" aria-modal="true" role="dialog" hidden>
+      <div class="sheet-grabber" aria-hidden="true"></div>
+      <div class="sheet-head">
+        <span class="sheet-kicker">DENO Music</span>
+        <button class="icon-button" id="sheet-close" type="button" aria-label="Close player"></button>
+      </div>
+      <div class="sheet-art" aria-hidden="true">
+        <span></span>
+      </div>
+      <div class="sheet-copy">
+        <h2 id="sheet-title">No track</h2>
+        <p id="sheet-meta">DENO</p>
+      </div>
+      <div class="sheet-tags" id="sheet-tags"></div>
+      <div class="sheet-progress">
+        <input id="sheet-seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek current track">
+        <div>
+          <span id="sheet-current">0:00</span>
+          <span id="sheet-duration">0:00</span>
+        </div>
+      </div>
+      <div class="sheet-controls" aria-label="Playback controls">
+        <button class="icon-button" id="sheet-repeat" type="button" aria-label="Repeat off"></button>
+        <button class="icon-button" id="sheet-prev" type="button" aria-label="Previous track"></button>
+        <button class="icon-button is-primary is-large" id="sheet-play" type="button" aria-label="Play"></button>
+        <button class="icon-button" id="sheet-next" type="button" aria-label="Next track"></button>
+        <button class="icon-button" id="sheet-volume" type="button" aria-label="Volume 100 percent"></button>
+        <button class="icon-button" id="sheet-favorite" type="button" aria-label="Save favorite"></button>
+      </div>
+      <a class="sheet-download" id="sheet-download" href="#">Download</a>
+    </section>
+    <script src="app.js?v=20260614-volume" defer></script>
+  </body>
+</html>

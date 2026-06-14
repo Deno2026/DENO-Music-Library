@@ -1,0 +1,10 @@
+.env
+.env.*
+*.log
+*.wav
+*.mp3
+*.flac
+*.m4a
+*.aac
+*.ogg
+tmp/

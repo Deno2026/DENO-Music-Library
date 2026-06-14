@@ -1,0 +1,540 @@
+[
+  {
+    "id": "deno-bgm-001",
+    "title": "F-Major Glass Piano Soft Groove",
+    "artist": "DENO",
+    "mood": [
+      "focused",
+      "calm",
+      "soft"
+    ],
+    "genre": [
+      "bgm",
+      "electronic",
+      "piano"
+    ],
+    "bpm": 82,
+    "bpmEstimated": false,
+    "duration": "03:05",
+    "hasVocal": false,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/deno-bgm-f-major-glass-piano-soft-groove.mp3",
+    "sourceCandidateId": "A1",
+    "sourceFile": "BGM\\DENO_BGM_blind16_f-major-glass-piano-rhodes-soft-groove_KEEP.wav",
+    "releaseNote": "Representative BGM candidate."
+  },
+  {
+    "id": "deno-bgm-002",
+    "title": "Bright Piano Chill House 03",
+    "artist": "DENO",
+    "mood": [
+      "focused",
+      "bright",
+      "calm"
+    ],
+    "genre": [
+      "bgm",
+      "house",
+      "piano"
+    ],
+    "bpm": 82,
+    "bpmEstimated": false,
+    "duration": "03:05",
+    "hasVocal": false,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/deno-bgm-bright-piano-chill-house-03.mp3",
+    "sourceCandidateId": "A2",
+    "sourceFile": "BGM\\[03] DENO-bright-piano-chill-house-bgm.wav",
+    "releaseNote": "BGM Pack 001 candidate."
+  },
+  {
+    "id": "deno-citypop-001",
+    "title": "Glass Moon Anchor",
+    "artist": "DENO",
+    "mood": [
+      "night",
+      "smooth"
+    ],
+    "genre": [
+      "citypop",
+      "vocal"
+    ],
+    "bpm": 96,
+    "bpmEstimated": true,
+    "duration": "02:30",
+    "hasVocal": true,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/deno-citypop-glass-moon-anchor.mp3",
+    "sourceCandidateId": "B1",
+    "sourceFile": "리뷰통과곡\\CTPOP_Human_Learned_150s_10_[2] glass-moon-anchor-23035.wav",
+    "releaseNote": "Top CTPOP vocal candidate. BPM is a metadata estimate."
+  },
+  {
+    "id": "deno-citypop-002",
+    "title": "Midnight Radio Anchor",
+    "artist": "DENO",
+    "mood": [
+      "night",
+      "smooth"
+    ],
+    "genre": [
+      "citypop",
+      "vocal"
+    ],
+    "bpm": 96,
+    "bpmEstimated": true,
+    "duration": "02:30",
+    "hasVocal": true,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/deno-citypop-midnight-radio-anchor.mp3",
+    "sourceCandidateId": "B2",
+    "sourceFile": "리뷰통과곡\\CTPOP_Human_Learned_150s_10_[6] midnight-radio-anchor-23532.wav",
+    "releaseNote": "Strong CTPOP vocal candidate. BPM is a metadata estimate."
+  },
+  {
+    "id": "deno-citypop-003",
+    "title": "Glass Moon",
+    "artist": "DENO",
+    "mood": [
+      "night",
+      "smooth"
+    ],
+    "genre": [
+      "citypop",
+      "vocal"
+    ],
+    "bpm": 96,
+    "bpmEstimated": true,
+    "duration": "02:30",
+    "hasVocal": true,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/deno-citypop-glass-moon.mp3",
+    "sourceCandidateId": "B3",
+    "sourceFile": "리뷰통과곡\\Citypop_Female_150s_10_[4] glass-moon.wav",
+    "releaseNote": "Citypop representative candidate. BPM is a metadata estimate."
+  },
+  {
+    "id": "deno-citypop-004",
+    "title": "Glass Moon Anchor 23045",
+    "artist": "DENO",
+    "mood": [
+      "night",
+      "smooth"
+    ],
+    "genre": [
+      "citypop",
+      "vocal"
+    ],
+    "bpm": 96,
+    "bpmEstimated": true,
+    "duration": "02:30",
+    "hasVocal": true,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/deno-citypop-glass-moon-anchor-23045.mp3",
+    "sourceCandidateId": "B4",
+    "sourceFile": "리뷰통과곡\\CTPOP_Human_Learned_150s_10_[8] glass-moon-anchor-23045.wav",
+    "releaseNote": "Alternate Glass Moon candidate. BPM is a metadata estimate."
+  },
+  {
+    "id": "deno-citypop-005",
+    "title": "Midnight Radio Variant",
+    "artist": "DENO",
+    "mood": [
+      "night",
+      "smooth"
+    ],
+    "genre": [
+      "citypop",
+      "vocal"
+    ],
+    "bpm": 96,
+    "bpmEstimated": true,
+    "duration": "02:30",
+    "hasVocal": true,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/deno-citypop-midnight-radio-variant.mp3",
+    "sourceCandidateId": "B5",
+    "sourceFile": "리뷰통과곡\\Citypop_Female_150s_10_[10] midnight-radio-variant.wav",
+    "releaseNote": "Variant candidate. BPM is a metadata estimate."
+  },
+  {
+    "id": "deno-citypop-006",
+    "title": "Moonlit Radio",
+    "artist": "DENO",
+    "mood": [
+      "night",
+      "smooth"
+    ],
+    "genre": [
+      "citypop",
+      "vocal"
+    ],
+    "bpm": 96,
+    "bpmEstimated": true,
+    "duration": "02:30",
+    "hasVocal": true,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/deno-citypop-moonlit-radio.mp3",
+    "sourceCandidateId": "B6",
+    "sourceFile": "리뷰통과곡\\CTPOP_Human_Learned_150s_10_[1] moonlit-radio.wav",
+    "releaseNote": "Supplemental CTPOP candidate. BPM is a metadata estimate."
+  },
+  {
+    "id": "deno-citypop-007",
+    "title": "Mango Street",
+    "artist": "DENO",
+    "mood": [
+      "night",
+      "smooth"
+    ],
+    "genre": [
+      "citypop",
+      "vocal"
+    ],
+    "bpm": 96,
+    "bpmEstimated": true,
+    "duration": "02:30",
+    "hasVocal": true,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/deno-citypop-mango-street.mp3",
+    "sourceCandidateId": "B7",
+    "sourceFile": "리뷰통과곡\\Citypop_Female_150s_10_[8] mango-street.wav",
+    "releaseNote": "Good song, vocal texture needs final public-release check. BPM is a metadata estimate."
+  },
+  {
+    "id": "deno-krock-001",
+    "title": "Scar Love",
+    "artist": "DENO",
+    "mood": [
+      "emotional",
+      "dramatic"
+    ],
+    "genre": [
+      "k-rock",
+      "ballad",
+      "vocal"
+    ],
+    "bpm": 78,
+    "bpmEstimated": true,
+    "duration": "02:00",
+    "hasVocal": true,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/deno-krock-scar-love.mp3",
+    "sourceCandidateId": "C2",
+    "sourceFile": "리뷰통과곡\\K-Rock_Ballad_2min_30_[23] scar-love.wav",
+    "releaseNote": "K-Rock upper candidate. BPM is a metadata estimate."
+  },
+  {
+    "id": "deno-krock-002",
+    "title": "Prev Last Goodbye",
+    "artist": "DENO",
+    "mood": [
+      "emotional",
+      "dramatic"
+    ],
+    "genre": [
+      "k-rock",
+      "ballad",
+      "vocal"
+    ],
+    "bpm": 78,
+    "bpmEstimated": true,
+    "duration": "02:00",
+    "hasVocal": true,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/deno-krock-prev-last-goodbye.mp3",
+    "sourceCandidateId": "C6",
+    "sourceFile": "리뷰통과곡\\K-Rock_Anchor_Combined_20_[10] prev-last-goodbye-seed-9902.wav",
+    "releaseNote": "Vocal texture needs final public-release check. BPM is a metadata estimate."
+  },
+  {
+    "id": "deno-bgm-003",
+    "title": "Bright Synthpop With Warm Analog Synths",
+    "artist": "DENO",
+    "mood": [
+      "bright",
+      "calm"
+    ],
+    "genre": [
+      "bgm",
+      "synthpop",
+      "electronic"
+    ],
+    "bpm": 116,
+    "bpmEstimated": false,
+    "duration": "02:00",
+    "hasVocal": false,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/sa3/deno-bgm-003-bright-synthpop-with-warm-analog-synths.mp3",
+    "sourceCandidateId": "h-sa3-01",
+    "sourceFile": "SA3_KEEP_20260530_Bright-synthpop-with-warm-analog-synths_seed53002.wav",
+    "releaseNote": "이것도 영화의 특정 장면에 삽입핧 목적으로 나쁘지 않아보임."
+  },
+  {
+    "id": "deno-bgm-004",
+    "title": "Calm Ambient Soundscape With Soft Textures",
+    "artist": "DENO",
+    "mood": [
+      "calm"
+    ],
+    "genre": [
+      "bgm",
+      "ambient"
+    ],
+    "bpm": 60,
+    "bpmEstimated": false,
+    "duration": "02:00",
+    "hasVocal": false,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/sa3/deno-bgm-004-calm-ambient-soundscape-with-soft-textures.mp3",
+    "sourceCandidateId": "h-sa3-02",
+    "sourceFile": "SA3_KEEP_20260530_Calm-ambient-soundscape-with-soft-textur_seed52002.wav",
+    "releaseNote": "음산한 분위기의 배경음악이네.  공포분위기 연출할때 쓸만하긴 할듯.   의도해서 만든건진 모르겠으나 어쩃든 소스로는 쓸만함"
+  },
+  {
+    "id": "deno-bgm-005",
+    "title": "Cinematic Emotional Piano Trailer",
+    "artist": "DENO",
+    "mood": [
+      "dramatic"
+    ],
+    "genre": [
+      "bgm",
+      "piano",
+      "cinematic"
+    ],
+    "bpm": 80,
+    "bpmEstimated": false,
+    "duration": "02:00",
+    "hasVocal": false,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/sa3/deno-bgm-005-cinematic-emotional-piano-trailer.mp3",
+    "sourceCandidateId": "h-sa3-03",
+    "sourceFile": "SA3_KEEP_20260530_Cinematic-emotional-piano-trailer_seed42303.wav",
+    "releaseNote": "멜로디가 내 취향에도 좋고 마음에 들음 감동적인 피아노 BGM 음악처럼 들림"
+  },
+  {
+    "id": "deno-bgm-006",
+    "title": "Dreamy Ambient Piano With Warm Pads",
+    "artist": "DENO",
+    "mood": [
+      "calm",
+      "soft"
+    ],
+    "genre": [
+      "bgm",
+      "ambient",
+      "piano"
+    ],
+    "bpm": 65,
+    "bpmEstimated": false,
+    "duration": "02:00",
+    "hasVocal": false,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/sa3/deno-bgm-006-dreamy-ambient-piano-with-warm-pads.mp3",
+    "sourceCandidateId": "h-sa3-04",
+    "sourceFile": "SA3_KEEP_20260530_Dreamy-ambient-piano-with-warm-pads_seed51006.wav",
+    "releaseNote": "이것도 우울한분위기의 bgm 으로쓰면 좋을듯"
+  },
+  {
+    "id": "deno-bgm-007",
+    "title": "Dreamy Synthpop Instrumental With Shimmering Pads",
+    "artist": "DENO",
+    "mood": [
+      "soft"
+    ],
+    "genre": [
+      "bgm",
+      "synthpop",
+      "electronic"
+    ],
+    "bpm": 120,
+    "bpmEstimated": false,
+    "duration": "02:00",
+    "hasVocal": false,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/sa3/deno-bgm-007-dreamy-synthpop-instrumental-with-shimmering-pads.mp3",
+    "sourceCandidateId": "h-sa3-05",
+    "sourceFile": "SA3_KEEP_20260530_Dreamy-synthpop-instrumental-with-shimme_seed42202.wav",
+    "releaseNote": "이것도 나쁘지 않음. 음악으로 볼 수 있음. 좋냐 안좋냐는 취향의 영역,"
+  },
+  {
+    "id": "deno-bgm-008",
+    "title": "Driving Retro Synthwave With Arpeggiated Bass",
+    "artist": "DENO",
+    "mood": [
+      "focused"
+    ],
+    "genre": [
+      "bgm",
+      "synthwave",
+      "electronic"
+    ],
+    "bpm": 128,
+    "bpmEstimated": false,
+    "duration": "02:00",
+    "hasVocal": false,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/sa3/deno-bgm-008-driving-retro-synthwave-with-arpeggiated-bass.mp3",
+    "sourceCandidateId": "h-sa3-06",
+    "sourceFile": "SA3_KEEP_20260530_Driving-retro-synthwave-with-arpeggiated_seed42505.wav",
+    "releaseNote": "이것도 마찬가지로 음악 취향의 문제이지 훌륭한 음악임"
+  },
+  {
+    "id": "deno-bgm-009",
+    "title": "Energetic Festival House Track With Euphoric Synth Lead",
+    "artist": "DENO",
+    "mood": [
+      "bright"
+    ],
+    "genre": [
+      "bgm",
+      "house",
+      "electronic"
+    ],
+    "bpm": 124,
+    "bpmEstimated": false,
+    "duration": "02:00",
+    "hasVocal": false,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/sa3/deno-bgm-009-energetic-festival-house-track-with-euphoric-synth-lead.mp3",
+    "sourceCandidateId": "h-sa3-07",
+    "sourceFile": "SA3_KEEP_20260530_Energetic-festival-house-track-with-euph_seed42101.wav",
+    "releaseNote": "음악이라고 해도 됨. 음질도 괜찮음.  노래가 좋냐 안좋냐의 취향문제이지 정상적인 음악으로 볼수있음"
+  },
+  {
+    "id": "deno-bgm-010",
+    "title": "Epic Cinematic Piano Build With Orchestral Swell",
+    "artist": "DENO",
+    "mood": [
+      "dramatic"
+    ],
+    "genre": [
+      "bgm",
+      "piano",
+      "cinematic"
+    ],
+    "bpm": 90,
+    "bpmEstimated": false,
+    "duration": "02:00",
+    "hasVocal": false,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/sa3/deno-bgm-010-epic-cinematic-piano-build-with-orchestral-swell.mp3",
+    "sourceCandidateId": "h-sa3-08",
+    "sourceFile": "SA3_KEEP_20260530_Epic-cinematic-piano-build-with-orchestr_seed51003.wav",
+    "releaseNote": "Epic cinematic piano build with orchestral swell, 90 BPM"
+  },
+  {
+    "id": "deno-bgm-011",
+    "title": "Gentle Emotional Piano With Cello",
+    "artist": "DENO",
+    "mood": [
+      "calm",
+      "dramatic"
+    ],
+    "genre": [
+      "bgm",
+      "piano",
+      "cello"
+    ],
+    "bpm": 78,
+    "bpmEstimated": false,
+    "duration": "02:00",
+    "hasVocal": false,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/sa3/deno-bgm-011-gentle-emotional-piano-with-cello.mp3",
+    "sourceCandidateId": "h-sa3-09",
+    "sourceFile": "SA3_KEEP_20260530_Gentle-emotional-piano-with-cello_seed51007.wav",
+    "releaseNote": "Gentle emotional piano with cello, 78 BPM"
+  },
+  {
+    "id": "deno-bgm-012",
+    "title": "Smooth Ambient Electronic With Deep Pads",
+    "artist": "DENO",
+    "mood": [
+      "calm"
+    ],
+    "genre": [
+      "bgm",
+      "ambient",
+      "electronic"
+    ],
+    "bpm": 90,
+    "bpmEstimated": false,
+    "duration": "02:00",
+    "hasVocal": false,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/sa3/deno-bgm-012-smooth-ambient-electronic-with-deep-pads.mp3",
+    "sourceCandidateId": "h-sa3-10",
+    "sourceFile": "SA3_KEEP_20260530_Smooth-ambient-electronic-with-deep-pads_seed42404.wav",
+    "releaseNote": "이것도 음악 취향의 문제이지 생성된 결과물에는 문제 없음."
+  },
+  {
+    "id": "deno-bgm-013",
+    "title": "Uplifting Deep House With Piano Stabs",
+    "artist": "DENO",
+    "mood": [
+      "bright"
+    ],
+    "genre": [
+      "bgm",
+      "piano",
+      "house"
+    ],
+    "bpm": 122,
+    "bpmEstimated": false,
+    "duration": "02:00",
+    "hasVocal": false,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/sa3/deno-bgm-013-uplifting-deep-house-with-piano-stabs.mp3",
+    "sourceCandidateId": "h-sa3-11",
+    "sourceFile": "SA3_KEEP_20260530_Uplifting-deep-house-with-piano-stabs_seed54001.wav",
+    "releaseNote": "이것도 꽤 나쁘진 않음 들어줄만함"
+  },
+  {
+    "id": "deno-bgm-014",
+    "title": "Warm Downtempo Chillhop Beat With Mellow Keys",
+    "artist": "DENO",
+    "mood": [
+      "calm",
+      "soft"
+    ],
+    "genre": [
+      "bgm",
+      "chillhop",
+      "downtempo"
+    ],
+    "bpm": 85,
+    "bpmEstimated": false,
+    "duration": "02:00",
+    "hasVocal": false,
+    "license": "DENO Free Music License v1",
+    "usage": "Free for personal and commercial use. No attribution required.",
+    "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/sa3/deno-bgm-014-warm-downtempo-chillhop-beat-with-mellow-keys.mp3",
+    "sourceCandidateId": "h-sa3-12",
+    "sourceFile": "SA3_KEEP_20260530_Warm-downtempo-chillhop-beat-with-mellow_seed52001.wav",
+    "releaseNote": "Warm downtempo chillhop beat with mellow keys, 85 BPM"
+  }
+]
