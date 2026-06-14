@@ -57,6 +57,7 @@ const dom = {
   audio: document.getElementById("audio-player"),
   playerDock: document.getElementById("player-dock"),
   dockOpen: document.getElementById("dock-open"),
+  dockArt: document.querySelector(".dock-art"),
   dockTitle: document.getElementById("dock-title"),
   dockMeta: document.getElementById("dock-meta"),
   dockPrev: document.getElementById("dock-prev"),
@@ -69,6 +70,7 @@ const dom = {
   playerBackdrop: document.getElementById("player-backdrop"),
   playerSheet: document.getElementById("player-sheet"),
   sheetClose: document.getElementById("sheet-close"),
+  sheetArt: document.querySelector(".sheet-art"),
   sheetTitle: document.getElementById("sheet-title"),
   sheetMeta: document.getElementById("sheet-meta"),
   sheetTags: document.getElementById("sheet-tags"),
@@ -103,9 +105,25 @@ const volumeSteps = [1, 0.7, 0.4, 0.15, 0];
 
 const categoryDefinitions = [
   { id: "all", label: "All" },
-  { id: "bgm", label: "BGM", hasVocal: false },
-  { id: "vocal", label: "Vocal Music", hasVocal: true }
+  { id: "vocal", label: "Vocal Music", hasVocal: true },
+  { id: "bgm", label: "BGM", hasVocal: false }
 ];
+
+const preferredTrackIds = [
+  "deno-citypop-001",
+  "deno-citypop-002",
+  "deno-citypop-003",
+  "deno-krock-001",
+  "deno-citypop-004",
+  "deno-citypop-007",
+  "deno-krock-002",
+  "deno-citypop-005",
+  "deno-citypop-006",
+  "deno-bgm-001",
+  "deno-bgm-002"
+];
+
+const preferredTrackRank = new Map(preferredTrackIds.map((id, index) => [id, index]));
 
 function loadLocalTracks() {
   return new Promise((resolve) => {
@@ -222,6 +240,25 @@ function getDownloadName(track) {
   return track?.downloadFileName || `DENO - ${track?.title || "Music"}`;
 }
 
+function getCoverUrl(track) {
+  return track?.coverUrl || track?.artworkUrl || track?.thumbnailUrl || "";
+}
+
+function applyCoverArt(element, track) {
+  if (!element) return;
+  const coverUrl = getCoverUrl(track);
+  element.classList.toggle("has-cover", Boolean(coverUrl));
+  element.style.backgroundImage = coverUrl ? `url("${coverUrl.replace(/"/g, "%22")}")` : "";
+}
+
+function makeCoverElement(track, className) {
+  const cover = document.createElement("span");
+  cover.className = className;
+  cover.setAttribute("aria-hidden", "true");
+  applyCoverArt(cover, track);
+  return cover;
+}
+
 function makeTrackMeta(track) {
   if (!track) return "DENO";
   return `${track.artist} / ${track.duration} / ${track.hasVocal ? "Vocals" : "Instrumental"}`;
@@ -256,6 +293,26 @@ function categoryMatches(track, categoryId = state.filters.category) {
 
 function categoryTracks(categoryId = state.filters.category) {
   return state.tracks.filter((track) => categoryMatches(track, categoryId));
+}
+
+function stableHash(value) {
+  return [...String(value || "")].reduce((hash, char) => ((hash * 31) + char.charCodeAt(0)) >>> 0, 0);
+}
+
+function displayRank(track) {
+  const preferredRank = preferredTrackRank.get(track.id);
+  if (preferredRank !== undefined && track.hasVocal) return preferredRank;
+  if (track.hasVocal) return 100 + (stableHash(track.id || track.title) % 300);
+  if (preferredRank !== undefined) return 500 + preferredRank;
+  return 1000 + (stableHash(track.id || track.title) % 700);
+}
+
+function sortTracksForDisplay(tracks) {
+  return [...tracks].sort((left, right) => {
+    const rankDelta = displayRank(left) - displayRank(right);
+    if (rankDelta) return rankDelta;
+    return left.title.localeCompare(right.title);
+  });
 }
 
 function updateCategoryTabs() {
@@ -377,9 +434,11 @@ function renderTrackRow(track) {
   row.dataset.trackId = track.id;
   row.setAttribute("aria-label", `${track.title} by ${track.artist}`);
 
+  const cover = makeCoverElement(track, "track-cover");
   const play = document.createElement("span");
   play.className = "track-play";
   play.setAttribute("aria-hidden", "true");
+  cover.append(play);
 
   const info = document.createElement("div");
   info.className = "track-info";
@@ -440,7 +499,7 @@ function renderTrackRow(track) {
   }
 
   actions.append(favorite, download);
-  row.append(play, info, tags, actions);
+  row.append(cover, info, tags, actions);
   row.addEventListener("click", (event) => {
     if (event.target.closest("a, button, input")) return;
     playTrack(track);
@@ -455,7 +514,7 @@ function renderTrackRow(track) {
 }
 
 function renderTracks() {
-  state.filteredTracks = state.tracks.filter(matchesFilters);
+  state.filteredTracks = sortTracksForDisplay(state.tracks.filter(matchesFilters));
   const rows = state.filteredTracks.map(renderTrackRow);
   dom.trackList.replaceChildren(...rows);
   dom.emptyState.hidden = rows.length > 0;
@@ -697,6 +756,8 @@ function syncPlayerUi() {
   dom.sheetTitle.textContent = track.title;
   dom.sheetMeta.textContent = makeTrackMeta(track);
   dom.sheetTags.replaceChildren(...primaryTags(track).map((tag) => makeTag(tag)));
+  applyCoverArt(dom.dockArt, track);
+  applyCoverArt(dom.sheetArt, track);
 
   setIcon(dom.dockPlay, isPlaying ? "pause" : "play");
   setIcon(dom.sheetPlay, isPlaying ? "pause" : "play");

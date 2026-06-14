@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="DENO Music Library - free AI-generated music previews and downloads. No attribution required.">
     <title>DENO Music Library</title>
-    <link rel="stylesheet" href="styles.css?v=20260614-category">
+    <link rel="stylesheet" href="styles.css?v=20260615-cover-emphasis">
   </head>
   <body>
     <canvas id="signal-canvas" aria-hidden="true"></canvas>
@@ -49,13 +49,13 @@
             <span>All</span>
             <strong data-category-count="all">0</strong>
           </button>
-          <button type="button" role="tab" aria-selected="false" data-category="bgm">
-            <span>BGM</span>
-            <strong data-category-count="bgm">0</strong>
-          </button>
           <button type="button" role="tab" aria-selected="false" data-category="vocal">
             <span>Vocal Music</span>
             <strong data-category-count="vocal">0</strong>
+          </button>
+          <button type="button" role="tab" aria-selected="false" data-category="bgm">
+            <span>BGM</span>
+            <strong data-category-count="bgm">0</strong>
           </button>
         </div>
       </section>
@@ -164,6 +164,6 @@
       </div>
       <a class="sheet-download" id="sheet-download" href="#">Download</a>
     </section>
-    <script src="app.js?v=20260614-volume" defer></script>
+    <script src="app.js?v=20260615-vocal-first" defer></script>
   </body>
 </html>

@@ -19,6 +19,7 @@
     "hasVocal": false,
     "license": "DENO Free Music License v1",
     "usage": "Free for personal and commercial use. No attribution required.",
+    "coverUrl": "assets/covers/deno-bgm-001-sample-cover.png",
     "audioUrl": "https://pub-5eb8d6eced784b6d934b539c312b02af.r2.dev/mp3/deno-bgm-f-major-glass-piano-soft-groove.mp3",
     "sourceCandidateId": "A1",
     "sourceFile": "BGM\\DENO_BGM_blind16_f-major-glass-piano-rhodes-soft-groove_KEEP.wav",
