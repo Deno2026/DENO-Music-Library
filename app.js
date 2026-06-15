@@ -27,7 +27,6 @@ const state = {
     search: "",
     moods: new Set(),
     genres: new Set(),
-    vocal: "all",
     favoritesOnly: false
   }
 };
@@ -50,8 +49,6 @@ const dom = {
   searchInput: document.getElementById("search-input"),
   moodFilters: document.getElementById("mood-filters"),
   genreFilters: document.getElementById("genre-filters"),
-  vocalFilterBlock: document.getElementById("vocal-filter-block"),
-  vocalFilter: document.getElementById("vocal-filter"),
   favoriteFilter: document.getElementById("favorite-filter"),
   resetFilters: document.getElementById("reset-filters"),
   audio: document.getElementById("audio-player"),
@@ -109,6 +106,8 @@ const categoryDefinitions = [
   { id: "bgm", label: "BGM", hasVocal: false }
 ];
 
+const typeGenreTags = new Set(["bgm", "vocal"]);
+
 const preferredTrackIds = [
   "deno-citypop-001",
   "deno-citypop-002",
@@ -163,8 +162,17 @@ async function loadTracks() {
   }
 }
 
+function visibleGenres(track) {
+  return (track?.genre || []).filter((genre) => !typeGenreTags.has(String(genre).toLowerCase()));
+}
+
+function visibleGenreValues(tracks) {
+  return tracks.flatMap(visibleGenres);
+}
+
 function uniqueValues(tracks, key) {
-  return [...new Set(tracks.flatMap((track) => track[key] || []))]
+  const values = key === "genre" ? visibleGenreValues(tracks) : tracks.flatMap((track) => track[key] || []);
+  return [...new Set(values)]
     .filter(Boolean)
     .sort((a, b) => a.localeCompare(b));
 }
@@ -349,15 +357,6 @@ function syncCategoryOptions() {
   const tracks = categoryTracks();
   pruneSetToAvailable(state.filters.moods, uniqueValues(tracks, "mood"));
   pruneSetToAvailable(state.filters.genres, uniqueValues(tracks, "genre"));
-
-  if (state.filters.category !== "all") {
-    state.filters.vocal = "all";
-    syncSegmented(dom.vocalFilter, dom.vocalFilter.querySelector("[data-vocal='all']"));
-  }
-
-  if (dom.vocalFilterBlock) {
-    dom.vocalFilterBlock.hidden = state.filters.category !== "all";
-  }
 }
 
 function matchesFilters(track) {
@@ -365,28 +364,25 @@ function matchesFilters(track) {
     track.title,
     track.artist,
     ...(track.mood || []),
-    ...(track.genre || [])
+    ...visibleGenres(track),
+    getCategoryDefinition(track.hasVocal ? "vocal" : "bgm").label
   ]
     .join(" ")
     .toLowerCase();
   const categoryMatch = categoryMatches(track);
   const searchMatch = !state.filters.search || searchText.includes(state.filters.search.toLowerCase());
   const moodMatch = state.filters.moods.size === 0 || [...state.filters.moods].every((mood) => track.mood?.includes(mood));
-  const genreMatch = state.filters.genres.size === 0 || [...state.filters.genres].every((genre) => track.genre?.includes(genre));
-  const vocalMatch =
-    state.filters.vocal === "all" ||
-    (state.filters.vocal === "vocal" && track.hasVocal) ||
-    (state.filters.vocal === "instrumental" && !track.hasVocal);
+  const visibleGenreSet = new Set(visibleGenres(track));
+  const genreMatch = state.filters.genres.size === 0 || [...state.filters.genres].every((genre) => visibleGenreSet.has(genre));
   const favoriteMatch = !state.filters.favoritesOnly || isFavorite(track);
 
-  return categoryMatch && searchMatch && moodMatch && genreMatch && vocalMatch && favoriteMatch;
+  return categoryMatch && searchMatch && moodMatch && genreMatch && favoriteMatch;
 }
 
 function filterCount() {
   let count = state.filters.moods.size + state.filters.genres.size;
   if (state.filters.category !== "all") count += 1;
   if (state.filters.search) count += 1;
-  if (state.filters.vocal !== "all") count += 1;
   if (state.filters.favoritesOnly) count += 1;
   return count;
 }
@@ -421,7 +417,7 @@ function makeTag(text, className = "tag") {
 }
 
 function primaryTags(track) {
-  const tags = [...(track.mood || []), ...(track.genre || [])];
+  const tags = [...(track.mood || []), ...visibleGenres(track)];
   const visible = tags.slice(0, 2);
   if (tags.length > 2) visible.push(`+${tags.length - 2}`);
   return visible;
@@ -455,7 +451,7 @@ function renderTrackRow(track) {
   preview.className = "inline-preview";
   const previewDetails = [
     Number.isFinite(track.bpm) ? `${track.bpm} BPM` : "",
-    ...(track.genre || [])
+    ...visibleGenres(track)
   ].filter(Boolean).join(" / ");
   preview.innerHTML = `
     <input class="inline-seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek ${track.title}" disabled>
@@ -901,14 +897,6 @@ function bindEvents() {
     renderTracks();
   });
 
-  dom.vocalFilter.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-vocal]");
-    if (!button) return;
-    state.filters.vocal = button.dataset.vocal;
-    syncSegmented(dom.vocalFilter, button);
-    renderTracks();
-  });
-
   dom.favoriteFilter.addEventListener("click", () => {
     setFavoritesFilter(!state.filters.favoritesOnly);
   });
@@ -989,20 +977,11 @@ function toggleSetFilter(set, value, button) {
   }
 }
 
-function syncSegmented(group, selectedButton) {
-  group.querySelectorAll("button").forEach((button) => {
-    const selected = button === selectedButton;
-    button.classList.toggle("is-selected", selected);
-    button.setAttribute("aria-pressed", String(selected));
-  });
-}
-
 function resetFilters() {
   state.filters.category = "all";
   state.filters.search = "";
   state.filters.moods.clear();
   state.filters.genres.clear();
-  state.filters.vocal = "all";
   state.filters.favoritesOnly = false;
   dom.searchInput.value = "";
   renderFilterChips();
@@ -1010,7 +989,6 @@ function resetFilters() {
     chip.classList.remove("is-selected");
     chip.setAttribute("aria-pressed", "false");
   });
-  syncSegmented(dom.vocalFilter, dom.vocalFilter.querySelector("[data-vocal='all']"));
   dom.favoriteFilter.classList.remove("is-selected");
   dom.favoriteFilter.setAttribute("aria-pressed", "false");
   dom.favoriteFilter.textContent = "Favorites";

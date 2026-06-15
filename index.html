@@ -42,7 +42,7 @@
       <section class="category-panel" aria-label="Music categories">
         <div class="category-panel-head">
           <span>Categories</span>
-          <span>Choose BGM or vocal music, then refine options on the left.</span>
+          <span>Choose a main section, then refine mood and style on the left.</span>
         </div>
         <div class="category-tabs" id="category-tabs" role="tablist" aria-label="Primary music categories">
           <button class="is-selected" type="button" role="tab" aria-selected="true" data-category="all">
@@ -63,7 +63,7 @@
       <section class="workbench" aria-label="Music library">
         <aside class="filter-rail" aria-label="Filters">
           <div class="filter-rail-head">
-            <span>Options</span>
+            <span>Refine</span>
             <strong id="selected-category-label">All</strong>
           </div>
 
@@ -80,15 +80,6 @@
           <div class="filter-block">
             <div class="filter-title">Style Tags</div>
             <div class="chip-grid" id="genre-filters"></div>
-          </div>
-
-          <div class="filter-block compact-filter" id="vocal-filter-block">
-            <div class="filter-title">Vocals</div>
-            <div class="segmented" id="vocal-filter" role="group" aria-label="Vocal filter">
-              <button class="is-selected" type="button" data-vocal="all">All</button>
-              <button type="button" data-vocal="instrumental">No Vocal</button>
-              <button type="button" data-vocal="vocal">Vocals</button>
-            </div>
           </div>
 
           <button class="favorite-filter" id="favorite-filter" type="button" aria-pressed="false">
@@ -164,6 +155,6 @@
       </div>
       <a class="sheet-download" id="sheet-download" href="#">Download</a>
     </section>
-    <script src="app.js?v=20260615-download-attachment" defer></script>
+    <script src="app.js?v=20260615-category-filter-cleanup" defer></script>
   </body>
 </html>
