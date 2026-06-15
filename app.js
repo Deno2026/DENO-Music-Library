@@ -489,8 +489,6 @@ function renderTrackRow(track) {
   const downloadUrl = getDownloadUrl(track);
   if (isAvailableUrl(downloadUrl)) {
     download.href = downloadUrl;
-    download.target = "_blank";
-    download.rel = "noreferrer";
     download.download = getDownloadName(track);
   } else {
     download.href = "#";
