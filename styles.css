@@ -1027,8 +1027,17 @@ input[type="search"]:focus {
 
 @media (max-width: 720px) {
   .site-header {
-    min-height: 64px;
-    padding: 14px 16px;
+    min-height: 52px;
+    padding: 10px 12px;
+  }
+
+  .hub-link {
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .hub-mark {
+    font-size: 16px;
   }
 
   .top-nav {
@@ -1036,69 +1045,127 @@ input[type="search"]:focus {
   }
 
   .top-nav a {
-    padding: 8px;
+    padding: 6px;
+    font-size: 11px;
   }
 
   .app-shell {
-    padding: 24px 12px 118px;
+    padding: 16px 8px 108px;
   }
 
   .library-head {
     display: grid;
-    gap: 18px;
+    gap: 9px;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 30px;
+    line-height: 1.02;
+  }
+
+  .subline {
+    margin-top: 7px;
+    font-size: 13px;
+    line-height: 1.35;
   }
 
   .head-stats {
+    display: flex;
     min-width: 0;
+    gap: 10px;
+    font-size: 11px;
     text-align: left;
   }
 
   .free-use-strip {
-    display: grid;
-    gap: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding: 9px 10px;
+  }
+
+  .free-use-strip strong,
+  .free-use-strip span {
+    font-size: 11px;
+  }
+
+  .free-use-strip span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .category-panel {
-    padding: 12px;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
   }
 
   .category-panel-head {
     display: grid;
-    gap: 5px;
+    gap: 3px;
+  }
+
+  .category-panel-head span:last-child {
+    display: none;
   }
 
   .category-tabs {
-    gap: 8px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
   }
 
   .category-tabs button {
-    min-height: 52px;
-    padding: 0 11px;
+    min-height: 42px;
+    gap: 6px;
+    padding: 0 8px;
   }
 
   .category-tabs span {
-    font-size: 15px;
+    font-size: 13px;
+  }
+
+  .category-tabs strong {
+    min-width: 24px;
+    min-height: 22px;
+    padding: 0 6px;
+    font-size: 11px;
+  }
+
+  .workbench {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .filter-rail {
+    order: 2;
     grid-template-columns: 1fr;
+    gap: 12px;
     padding: 14px;
+  }
+
+  .track-surface {
+    order: 1;
   }
 
   .track-list-head {
     display: grid;
-    gap: 5px;
+    gap: 4px;
+    padding: 10px 12px;
   }
 
   .track-row {
-    grid-template-columns: 64px minmax(0, 1fr);
-    gap: 12px;
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 10px;
     min-height: auto;
-    padding: 14px;
+    padding: 11px 10px;
   }
 
   .track-cover {
-    width: 64px;
+    width: 56px;
   }
 
   .track-play {
@@ -1118,7 +1185,11 @@ input[type="search"]:focus {
   }
 
   .track-actions {
-    grid-template-columns: 44px minmax(0, 1fr);
+    grid-template-columns: 40px minmax(0, 1fr);
+  }
+
+  .download-button {
+    min-height: 36px;
   }
 
   .title-line strong,
