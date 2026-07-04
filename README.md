@@ -1,18 +1,18 @@
 # DENO Music Library
 
-Free AI-generated music from DENO.
+GPL-3.0 AI-generated music from DENO.
 
-Preview tracks in the browser, download the ones you like, and use them in personal or commercial projects.
+Preview tracks in the browser, download the ones you like, and use them under GPL-3.0.
 
 ## Use
 
 - Free download
 - Free personal use
 - Free commercial use
-- No attribution required
-- No source credit required
+- Modification and redistribution allowed under GPL-3.0
+- Distributed modified versions must follow GPL-3.0
 
-All tracks use `DENO Free Music License v1`.
+All DENO-owned tracks and project-local files in this repository use GNU GPL v3.0 (`GPL-3.0-only`).
 
 ## Library
 
@@ -68,4 +68,4 @@ Deploy from branch: main / root
 
 ## License
 
-See [DENO_FREE_MUSIC_LICENSE_v1.md](DENO_FREE_MUSIC_LICENSE_v1.md).
+See [LICENSE](LICENSE).

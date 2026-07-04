@@ -2,6 +2,7 @@
   "name": "deno-music-library",
   "version": "1.0.0",
   "private": true,
+  "license": "GPL-3.0-only",
   "type": "module",
   "scripts": {
     "check": "node --check app.js && node scripts/validate-tracks.mjs"

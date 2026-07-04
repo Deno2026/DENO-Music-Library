@@ -8,8 +8,8 @@ const fallbackTracks = [
     bpm: 82,
     duration: "03:05",
     hasVocal: false,
-    license: "DENO Free Music License v1",
-    usage: "Free for personal and commercial use. No attribution required.",
+    license: "GNU GPL v3.0",
+    usage: "Free to use, modify, and redistribute under GPL-3.0.",
     audioUrl: "https://deno2026.github.io/Deno-AI-HUB/assets/audio/deno-bgm-local-ai-music.wav"
   }
 ];
