@@ -252,18 +252,50 @@ function getCoverUrl(track) {
   return track?.coverUrl || track?.artworkUrl || track?.thumbnailUrl || "";
 }
 
-function applyCoverArt(element, track) {
+let coverObserver = null;
+
+function setCoverBackground(element, coverUrl) {
+  element.style.backgroundImage = coverUrl ? `url("${coverUrl.replace(/"/g, "%22")}")` : "";
+}
+
+function observeCover(element, coverUrl) {
+  if (!("IntersectionObserver" in window)) {
+    setCoverBackground(element, coverUrl);
+    return;
+  }
+  if (!coverObserver) {
+    coverObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const url = entry.target.dataset.coverUrl || "";
+        setCoverBackground(entry.target, url);
+        delete entry.target.dataset.coverUrl;
+        coverObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: "800px 0px" });
+  }
+  element.dataset.coverUrl = coverUrl;
+  coverObserver.observe(element);
+}
+
+function applyCoverArt(element, track, options = {}) {
   if (!element) return;
   const coverUrl = getCoverUrl(track);
   element.classList.toggle("has-cover", Boolean(coverUrl));
-  element.style.backgroundImage = coverUrl ? `url("${coverUrl.replace(/"/g, "%22")}")` : "";
+  if (!coverUrl) {
+    setCoverBackground(element, "");
+  } else if (options.lazy) {
+    observeCover(element, coverUrl);
+  } else {
+    setCoverBackground(element, coverUrl);
+  }
 }
 
 function makeCoverElement(track, className) {
   const cover = document.createElement("span");
   cover.className = className;
   cover.setAttribute("aria-hidden", "true");
-  applyCoverArt(cover, track);
+  applyCoverArt(cover, track, { lazy: className === "track-cover" });
   return cover;
 }
 

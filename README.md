@@ -6,7 +6,13 @@ Preview, organize, and download DENO's AI-generated music from a practical brows
 
 ![DENO Music Library with category, filter, preview, favorite, and download controls](assets/readme/music-library-desktop.png)
 
-The current public library contains **23 tracks**: **14 BGM tracks** and **9 vocal tracks**.
+The current public library contains **650 tracks**: **14 BGM tracks** and **636 vocal tracks**.
+
+## AI Generation Disclosure
+
+The 627-track MiniMax collection was generated with [MiniMax-Music3](https://github.com/MiniMax-AI/MiniMax-Music3), and its cover art was generated with [Krea 2 Turbo](https://github.com/krea-ai/krea-2). These tracks and covers are machine-generated. The [MiniMax-Music3 Community License](https://huggingface.co/MiniMaxAI/MiniMax-Music3/blob/main/LICENSE), [Krea 2 Community License](https://github.com/krea-ai/krea-2/blob/main/docs/KREA-2-COMMUNITY-LICENSE), and their acceptable-use terms remain separate from the GPL-3.0 license applied to DENO-owned release assets and site code.
+
+Krea's community license permits commercial use of Krea 2 outputs only while total company-wide trailing-twelve-month revenue remains below USD 1 million; use at or above that threshold requires an enterprise license from Krea.
 
 ## How to Use
 
