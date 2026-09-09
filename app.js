@@ -17,6 +17,7 @@ const fallbackTracks = [
 const state = {
   tracks: [],
   filteredTracks: [],
+  catalogNumbers: new Map(),
   activeTrack: null,
   favorites: new Set(),
   repeatMode: "off",
@@ -355,6 +356,17 @@ function sortTracksForDisplay(tracks) {
   });
 }
 
+function buildCatalogNumbers() {
+  const width = Math.max(3, String(state.tracks.length).length);
+  state.catalogNumbers = new Map(
+    sortTracksForDisplay(state.tracks).map((track, index) => [track.id, String(index + 1).padStart(width, "0")])
+  );
+}
+
+function catalogNumber(track) {
+  return state.catalogNumbers.get(track?.id) || "---";
+}
+
 function updateCategoryTabs() {
   if (!dom.categoryTabs) return;
   dom.categoryTabs.querySelectorAll("[data-category]").forEach((button) => {
@@ -393,6 +405,7 @@ function syncCategoryOptions() {
 
 function matchesFilters(track) {
   const searchText = [
+    catalogNumber(track),
     track.title,
     track.artist,
     ...(track.mood || []),
@@ -458,15 +471,15 @@ function primaryTags(track) {
 function renderTrackRow(track) {
   const row = document.createElement("article");
   row.className = "track-row";
-  row.tabIndex = 0;
   row.dataset.trackId = track.id;
-  row.setAttribute("aria-label", `${track.title} by ${track.artist}`);
+  row.setAttribute("aria-label", `${catalogNumber(track)} ${track.title} by ${track.artist}`);
+
+  const number = document.createElement("span");
+  number.className = "track-number";
+  number.textContent = catalogNumber(track);
+  number.setAttribute("aria-label", `Track ${catalogNumber(track)}`);
 
   const cover = makeCoverElement(track, "track-cover");
-  const play = document.createElement("span");
-  play.className = "track-play";
-  play.setAttribute("aria-hidden", "true");
-  cover.append(play);
 
   const info = document.createElement("div");
   info.className = "track-info";
@@ -502,6 +515,13 @@ function renderTrackRow(track) {
   const actions = document.createElement("div");
   actions.className = "track-actions";
 
+  const play = document.createElement("button");
+  play.type = "button";
+  play.className = "icon-button is-primary track-play-button";
+  play.dataset.playId = track.id;
+  play.setAttribute("aria-label", `Play track ${catalogNumber(track)}: ${track.title}`);
+  play.innerHTML = icons.play;
+
   const favorite = document.createElement("button");
   favorite.type = "button";
   favorite.className = "icon-button favorite-button";
@@ -524,18 +544,12 @@ function renderTrackRow(track) {
     download.setAttribute("aria-disabled", "true");
   }
 
-  actions.append(favorite, download);
-  row.append(cover, info, tags, actions);
-  row.addEventListener("click", (event) => {
-    if (event.target.closest("a, button, input")) return;
+  play.addEventListener("click", () => {
     playTrack(track);
   });
-  row.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      playTrack(track);
-    }
-  });
+
+  actions.append(play, favorite, download);
+  row.append(number, cover, info, tags, actions);
   return row;
 }
 
@@ -716,8 +730,17 @@ function cycleVolume() {
 function syncTrackRows() {
   document.querySelectorAll(".track-row").forEach((row) => {
     const active = state.activeTrack?.id === row.dataset.trackId;
+    const playing = active && !dom.audio.paused;
     row.classList.toggle("is-active", active);
-    row.classList.toggle("is-playing", active && !dom.audio.paused);
+    row.classList.toggle("is-playing", playing);
+    const playButton = row.querySelector("[data-play-id]");
+    if (playButton) {
+      setIcon(playButton, playing ? "pause" : "play");
+      playButton.setAttribute(
+        "aria-label",
+        `${playing ? "Pause" : "Play"} track ${catalogNumber({ id: row.dataset.trackId })}`
+      );
+    }
   });
   syncFavoriteButtons();
   updateInlineProgress();
@@ -777,9 +800,9 @@ function syncPlayerUi() {
     return;
   }
 
-  dom.dockTitle.textContent = track.title;
+  dom.dockTitle.textContent = `${catalogNumber(track)} · ${track.title}`;
   dom.dockMeta.textContent = makeTrackMeta(track);
-  dom.sheetTitle.textContent = track.title;
+  dom.sheetTitle.textContent = `${catalogNumber(track)} · ${track.title}`;
   dom.sheetMeta.textContent = makeTrackMeta(track);
   dom.sheetTags.replaceChildren(...primaryTags(track).map((tag) => makeTag(tag)));
   applyCoverArt(dom.dockArt, track);
@@ -1078,6 +1101,7 @@ function startSignalCanvas() {
 async function init() {
   loadStoredState();
   state.tracks = await loadTracks();
+  buildCatalogNumbers();
   setIcon(dom.dockPlay, "play");
   setIcon(dom.dockPrev, "prev");
   setIcon(dom.dockNext, "next");
