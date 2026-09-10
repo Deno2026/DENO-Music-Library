@@ -6,7 +6,7 @@
     <meta name="description" content="DENO Music Library - GPL-3.0 AI-generated music previews and downloads.">
     <link rel="icon" href="data:,">
     <title>DENO Music Library</title>
-    <link rel="stylesheet" href="styles.css?v=20260910-model-disclosure">
+    <link rel="stylesheet" href="styles.css?v=20260910-independent-filter-scroll">
   </head>
   <body>
     <canvas id="signal-canvas" aria-hidden="true"></canvas>
@@ -83,14 +83,16 @@
             <input id="search-input" type="search" autocomplete="off" placeholder="Title, mood, genre">
           </div>
 
-          <div class="filter-block">
-            <div class="filter-title">Mood</div>
-            <div class="chip-grid" id="mood-filters"></div>
-          </div>
+          <div class="filter-scroll" aria-label="Mood and style tag filters" tabindex="0">
+            <div class="filter-block">
+              <div class="filter-title">Mood</div>
+              <div class="chip-grid" id="mood-filters"></div>
+            </div>
 
-          <div class="filter-block">
-            <div class="filter-title">Style Tags</div>
-            <div class="chip-grid" id="genre-filters"></div>
+            <div class="filter-block">
+              <div class="filter-title">Style Tags</div>
+              <div class="chip-grid" id="genre-filters"></div>
+            </div>
           </div>
 
           <button class="favorite-filter" id="favorite-filter" type="button" aria-pressed="false">
