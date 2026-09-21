@@ -1,7 +1,14 @@
 {
   "name": "deno-music-library",
   "version": "1.0.0",
+  "description": "Browser-based library for previewing and downloading DENO AI-generated music.",
   "private": true,
+  "author": "DENO",
+  "homepage": "https://deno2026.github.io/DENO-Music-Library/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deno2026/DENO-Music-Library.git"
+  },
   "license": "GPL-3.0-only",
   "type": "module",
   "scripts": {

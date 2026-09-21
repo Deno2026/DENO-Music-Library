@@ -1,5 +1,9 @@
 # DENO Music Library
 
+<p align="center">
+  <img src="assets/brand/og-image.png" alt="DENO Music Library — preview, organize, and download AI-generated music" width="100%">
+</p>
+
 Preview, organize, and download DENO's AI-generated music from a practical browser library.
 
 **[Open DENO Music Library](https://deno2026.github.io/DENO-Music-Library/)**
